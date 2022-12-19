@@ -4,6 +4,8 @@ createApp({
     data() {
         return {
             activeImage: 0,
+            hover: false,
+            autoplay: null,
             slides: [
                 {
                         image: 'img/01.webp',
@@ -30,6 +32,9 @@ createApp({
             
         }
     },
+    created() {
+        this.startAutoplay()
+    },
     methods: {
         changeImage(index){
             this.activeImage = index;
@@ -37,9 +42,23 @@ createApp({
         next(){
             this.activeImage++
             if(this.activeImage > 4){
-                console.log(this.slides.lenght)
                 this.activeImage = 0
             }
-        }
-    },
+        },
+        previous(){
+            this.activeImage--
+            if(this.activeImage < 0){
+                this.activeImage = 4
+            }
+        },
+        startAutoplay(){
+            this.autoplay = setInterval(() =>{
+                this.next()
+            }, 3000) 
+        },
+        stopAutoplay(){
+                clearInterval(this.autoplay);
+                this.autoplay = null;
+        }   
+    }
 }).mount('#app')
