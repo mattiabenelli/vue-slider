@@ -12,7 +12,6 @@
 <body>
 
     <div id="app">
-
         <div class="container">
             <div class="slider-wrapper" tabindex="0">
 
@@ -27,7 +26,9 @@
                 <div class="thumbs">
                     <div class="prev"></div>
                     <div class="next"></div>
-                    <img class="thumb" v-bind:class="(activeImage == index) ? 'active' : ''"  v-for="(image,index) in slides.image" :src="image">
+                    <div class="thumb" v-bind:class="(activeImage == index) ? 'active' : ''" v-for="(obj,index) in slides">
+                        <img :src="obj.image">
+                    </div>
                     </div>
                 </div>
 
