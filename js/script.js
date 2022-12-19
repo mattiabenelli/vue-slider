@@ -31,8 +31,15 @@ createApp({
         }
     },
     methods: {
-        next: function(){
-            
+        changeImage(index){
+            this.activeImage = index;
+        },
+        next(){
+            this.activeImage++
+            if(this.activeImage > 4){
+                console.log(this.slides.lenght)
+                this.activeImage = 0
+            }
         }
     },
 }).mount('#app')
