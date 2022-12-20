@@ -4,7 +4,6 @@ createApp({
     data() {
         return {
             activeImage: 0,
-            hover: false,
             autoplay: null,
             slides: [
                 {
@@ -52,7 +51,7 @@ createApp({
             }
         },
         startAutoplay(){
-            this.autoplay = setInterval(() =>{
+            this.autoplay = setInterval(() => { 
                 this.next()
             }, 3000) 
         },
